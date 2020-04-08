@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Train: Data and APIs Project 1</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="main.css">
+    <script src="node.js"></script>
+    <script src="functionality.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> <!-- link to chart js -->
+
+
+
+  <body>
+
+    <!-- side bar menu -->
+    
+    <div class="sidebar">
+      <img src ="images/profile_pic.png" alt=" Profile Pic" id="profile_pic"> 
+      <a  href="home.html">Home</a>
+      <a href="weather.html">Weather Comparison</a>
+      <a href="calendar.html"class="active">Logged Info</a>
+
+        <!-- Modal-->
+        <p id="modal-btn"> Add Data</p>
+        <div class="modal">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p class="modal_title">Add Your Migraine Data Here</p>
+            
+
+            <!-- Data entry for pain - uses a slider to limit the data to between 0 and 10 -->
+            <label for="pain_value" class="input_title">How bad is your head pain out of 10?</label></br>
+            <div class="pain_slider">
+              <input type="range" min="0" max="10" value="5" class="slider" id="myRange">
+              <p>Pain Value: <span id="demo"></span></p>
+            </div><br>
+
+
+            <!-- Sleep data entry - drop down list for hours and mins  -->
+            <label for="sleep_value" class="input_title"> How much sleep did you get?</label></br>
+
+            <input list ="sleep" id="sleep_value"><label> Hours </label>
+            <datalist id="sleep">
+              <option value = "0 ">
+              <option value = "1 ">
+              <option value = "2 ">
+              <option value = "3 ">
+              <option value = "4 ">
+              <option value = "5 ">
+              <option value = "6 ">
+              <option value = "7 ">
+              <option value = "8 ">
+              <option value = "9 ">
+              <option value = "10 ">
+              <option value = "11 ">
+              <option value = "12 ">
+              <option value = "13 ">
+              <option value = "14 ">
+            </datalist>
+
+
+            <input list ="sleep_mins" id="sleep_value_mins"><label> Minutes </label>
+            <datalist id="sleep_mins">
+              <option value = "0 ">
+              <option value = "15 ">
+              <option value = "30 ">
+              <option value = "45 ">
+              
+            </datalist></br></br><br>
+
+
+
+            <!-- Exercise data input - drop down menu -->
+            <label for ="exercise_value" class="input_title">How much exercise did you do?</label></br>
+            <input list ="exercise" id="exercise_value"><label> Minutes </label>
+            <datalist id="exercise">
+              <option value = "0 ">
+              <option value = "10 ">
+              <option value = "15 ">
+              <option value = "20 ">
+              <option value = "25 ">
+              <option value = "30 ">
+              <option value = "35 ">
+              <option value = "40 ">
+              <option value = "45 ">
+              <option value = "50 ">
+              <option value = "55 ">
+              <option value = "60 ">
+              
+            </datalist>
+
+            
+              
+            </datalist><br><br><br>
+
+            
+
+
+            <!-- Extra info input - type box to allow user to write what they want -->
+            <label for ="extra_info"> Key Extra Information: </label>
+            <input type ="text" id="extra_info" value="e.g took triptan today"><br><br><br>
+
+
+            <!-- Choose which date the data is for - gets submited to the database with the data -->
+            <label for = "data_date" class="input_title">Date: </label>
+            <input type="date" id="data_date" name="data_date">
+            <button id="submit" onclick="location.reload();">submit</button> <!-- Refreshes the page to update the charts when the submit button is clicked -->
+          </div>
+        </div>
+      
+    </div> 
+
+    <!-- end of modal -->
+
+  
+
+    <!-- charts -->
+    <div class="main" id="main">
+
+
+      <h1> Hi Aimee, </br> Here's your migraine data this month </h1>
+      
+      
+
+     
+
+
+<!-- Hidden divs / hidden charts, no charts need to be shown on this page -->
+      <div id ="breakdown_chart_div" class="hide">
+        <h3> Pain Breakdown</h3>
+        <canvas id="breakdown_chart" height="340"></canvas>
+      </div>
+
+      <div id ="average_pain_div" class="hide">
+        <h3> Average Pain</h3>
+        <p id ="average_pain_title"> Your Average Pain is: </p>
+        <p id ="average_pain"> </p>
+      </div>
+
+      <div id = "pain_chart_page_div" class="hide">
+        <h3>Your Pain This Month</h3>
+        <canvas id ="pain_chart" width="600" height="400" ></canvas>
+      </div>
+
+
+      <div id ="overview_chart_div" class="hide">
+        <h3> Headache Days This Month</h3>
+        <canvas id="overview_chart" height="340"></canvas>
+      </div>
+
+
+      <div id = "sleep_chart_div" class="hide">
+        <h3><a href = "sleep.html">Your Sleep This Month</a></h3>      
+        <canvas id="sleep_chart" width="600" height="400"></canvas>
+      </div>
+
+       <div id = "exercise_chart_div" class="hide">
+        <a href = "exercise.html"><h3>Amount of Exercise This Month</h3></a>
+        <canvas id ="exercise_chart" width="600" height="400" ></canvas>
+      </div>
+
+       <div id ="multi_chart" class="hide">
+        <h3>Compare Your Data</h3>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <div id ="average_sleep_div" class="hide">
+        <h3> Average Pain</h3>
+        <p id ="average_sleep_title"> Your Average Pain is: </p>
+        <p id ="average_sleep"> </p>
+
+      </div>
+
+      <div id ="good_sleep_div" class="hide">
+        <h3> Nights of Sleep over 8hrs</h3>
+        <canvas id="good_sleep_chart" ></canvas>
+      </div>
+
+      <div id ="exercise_breakdown_div" class ="hide">
+        <h3> Exercise Breakdown</h3>
+        <canvas id="exercise_breakdown_chart" ></canvas>
+      </div>
+
+      <div id ="average_exercise_div" class ="hide">
+        <h3> Average Time Spent Exercising</h3>
+        <p id ="average_exercise_title"> Your Average Time Exercising is: </p>
+        <p id ="average_exercise"> </p>
+      </div>
+
+
+      <div id = "weather_chart_page_div" class="hide">
+        <h3>Your Precip WEather This Month</h3>
+        <canvas id ="weather_chart" width="600" height="400" ></canvas>
+      </div>
+
+       <div id = "weather_chart_page_div" class = "hide" >
+        <h3>Humidity vs. Pain</h3>
+        <canvas id ="weather_chart2"  ></canvas>
+      </div>
+
+
+          
+
+
+      
+    </div>
+  </body>
+  </html>
+
+
+  <script type="text/javascript">
+  fetchData(); //runs the function
+
+
+  
+
+
+
+
+      //fetch data function
+      async function fetchData(){
+        const response = await fetch('/api');
+        const data = await response.json();
+
+
+        for (let i = 0; i < data.length; i++) {
+          if (i > data.length -32){ //displays 32 results for 31 days in the longest month
+
+
+        
+          const main = document.getElementById('main')// selects the main div to add all the data to later
+          const root = document.createElement('p'); //creates new elements to hold each item of data
+          const root_list = document.createElement('ul');
+          const date = document.createElement('div');
+          const pain = document.createElement('li');
+          const sleep = document.createElement('li');
+          const exercise = document.createElement('li');  
+           
+          const extra_info = document.createElement('li');     
+          
+
+          const precipitation = document.createElement('li');
+          const pressure = document.createElement('li');   
+
+
+          for (let i = 0; i<data.length; i++){
+
+          // edits the data timestamp to show just the date (DD/MM/YYYY) not the time too
+          // take the parts of the date that you want and then put them inside your date array
+          let temp_date = new Date(data[i].data_date);
+          date[i] = temp_date.getDate()  + "/" + (temp_date.getMonth()+1) + "/" + temp_date.getFullYear();
+
+        
+              }
+          
+          // assigns what text will appear in each of the new created elements. Gets the variable and sets the text to a title and
+          // then gets the corresponding data from the database
+          precipitation.textContent = `Humidity: ${data[i].precipitation} %`;
+          pressure.textContent = `Air Pressure: ${data[i].pressure}`;
+
+
+
+          
+
+          pain.textContent = `Pain Value Out of 10: ${data[i].pain_value}`;
+          sleep.textContent = `Hours of Sleep: ${data[i].sleep_value} Hours`;
+          exercise.textContent =`Mins of Exercise: ${data[i].exercise_value} Mins`;
+          extra_info.textContent =`Extra Information You Logged: ${data[i].extra_info_value}`;
+          //const dateString = new Date(data[i].data_date).toLocaleString();
+          date.textContent = date[i];
+
+          //adds all the elements to the page
+          root_list.append(date, pain, sleep, exercise, extra_info, pressure, precipitation);
+
+          root.append(root_list);
+          
+
+          
+          main.append(root);
+          document.body.append(main) ;
+        }
+      }
+        console.log(data); 
+
+
+
+        
+      }
+
+
+
+
+</script>
+
+

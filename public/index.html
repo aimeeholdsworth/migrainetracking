@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Train: Data and APIs Project 1</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="main.css">
+    <script src="node.js"></script>
+    <script src="functionality.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> <!-- link to chart js
+     -->
+
+
+
+
+  <body>
+
+    <!-- side bar menu -->
+    
+    <div class="sidebar">
+      <img src ="images/profile_pic.png" alt=" Profile Pic" id="profile_pic"> 
+      <a class="active" href="home.html">Home</a>
+      <a href="weather.html">Weather Comparison</a>
+      <a href="calendar.html">Logged Info</a>
+
+        <!-- Modal-->
+        <p id="modal-btn"> Add Data</p>
+        <div class="modal">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p class="modal_title">Add Your Migraine Data Here</p>
+            
+
+            <!-- Data entry for pain - uses a slider to limit the data to between 0 and 10 -->
+            <label for="pain_value" class="input_title">How bad is your head pain out of 10?</label></br>
+            <div class="pain_slider">
+              <input type="range" min="0" max="10" value="5" class="slider" id="myRange">
+              <p>Pain Value: <span id="demo"></span></p>
+            </div><br>
+
+
+            <!-- Sleep data entry - drop down list for hours and mins  -->
+            <label for="sleep_value" class="input_title"> How much sleep did you get?</label></br>
+
+            <input list ="sleep" id="sleep_value"><label> Hours </label>
+            <datalist id="sleep">
+              <option value = "0 ">
+              <option value = "1 ">
+              <option value = "2 ">
+              <option value = "3 ">
+              <option value = "4 ">
+              <option value = "5 ">
+              <option value = "6 ">
+              <option value = "7 ">
+              <option value = "8 ">
+              <option value = "9 ">
+              <option value = "10 ">
+              <option value = "11 ">
+              <option value = "12 ">
+              <option value = "13 ">
+              <option value = "14 ">
+            </datalist>
+
+
+            <input list ="sleep_mins" id="sleep_value_mins"><label> Minutes </label>
+            <datalist id="sleep_mins">
+              <option value = "0 ">
+              <option value = "15 ">
+              <option value = "30 ">
+              <option value = "45 ">
+              
+            </datalist></br></br><br>
+
+
+
+            <!-- Exercise data input - drop down menu -->
+            <label for ="exercise_value" class="input_title">How much exercise did you do?</label></br>
+            <input list ="exercise" id="exercise_value"><label> Minutes </label>
+            <datalist id="exercise">
+              <option value = "0 ">
+              <option value = "10 ">
+              <option value = "15 ">
+              <option value = "20 ">
+              <option value = "25 ">
+              <option value = "30 ">
+              <option value = "35 ">
+              <option value = "40 ">
+              <option value = "45 ">
+              <option value = "50 ">
+              <option value = "55 ">
+              <option value = "60 ">
+              
+            </datalist>
+
+            
+              
+            </datalist><br><br><br>
+
+            
+
+
+            <!-- Extra info input - type box to allow user to write what they want -->
+            <label for ="extra_info"> Key Extra Information: </label>
+            <input type ="text" id="extra_info" value="e.g took triptan today"><br><br><br>
+
+
+            <!-- Choose which date the data is for - gets submited to the database with the data -->
+            <label for = "data_date" class="input_title">Date: </label>
+            <input type="date" id="data_date" name="data_date">
+            <button id="submit" onclick="location.reload();">submit</button> <!-- Refreshes the page to update the charts when the submit button is clicked -->
+          </div>
+        </div>
+      
+    </div> 
+
+    <!-- end of modal -->
+
+  
+
+    <!-- charts -->
+    <div class="main">
+
+
+      <h1> Hi Aimee, </br> Welcome to the migraine tracking and visualising web app</h1>
+      <h2>Let's get you set up</h2>
+
+      <pre id="summary"> 
+        To get the best results from this app track your migraine data daily to look for patterns and to identify triggers.
+        
+        Add your data through the side bar button : Add Data 
+        View a history of all your tracked data through the Logged Data button 
+
+        The more data you track the more information will be added to your graphs for the month. Use your graphs to look for what
+        could be causing your migraines to get worse and learn more about your health.
+
+        You can edit your data, but only one set of data is saved for the day. You will overwrite any old data. You can backtrack your
+        data so you can log data at a time that suits you.
+
+        The home page is where you can view a summary of all your data, this data has been visualised for you to make it easier to read.
+        Click on the title of each graph from the home page to view in-depth detail of this tracker.
+
+        Click on a graph key (coloured box) to hide that element of the graph.
+      </pre>
+
+   
+
+
+    
+
+  </div>
+
+
+  
+  </body>
+  </html>
+
+  // <script type="text/javascript"> 
+   //Code so that this page is only visited once, the first time the user uses the app. This page explains how to use 
+  // the app so doesn't need to be seen everytime. Redirects users to the home page if they have visited the site before.
+     if (localStorage.getItem("visited")) {
+        window.location.href = "home.html";
+      }
+      localStorage.setItem("visited", "true");
+  </script>

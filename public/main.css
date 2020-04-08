@@ -1,0 +1,486 @@
+body{
+	background-color: #2E274B;
+
+}
+
+h1,h2, h3, h4, h5,p,label,a{
+	color:#D0D0DF;
+	font-family: "Segoe UI";
+}
+
+
+h3{
+	text-align: center;
+	text-decoration: underline;
+}
+
+#underline{
+	text-decoration: underline;
+}
+
+
+#summary {
+	color:#D0D0DF;
+	font-family: "Segoe UI";
+	font-size: 20px;
+	background-color: #1B1934;
+	border-radius: 25px;
+	margin-left: 10px;
+}
+
+
+/* side bar styling */
+
+/* The side navigation menu */
+.sidebar {
+  margin: 0px;
+  padding: 0px;
+  width: 200px;
+  background-color: #1B1934;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.sidebar a{
+  display: block;
+  color: #D0D0DF;
+  padding: 16px;
+  text-decoration: none;
+}
+
+#modal-btn, #modal-btn-sleep {
+	display: block;
+  color: #D0D0DF;
+  padding: 16px;
+  text-decoration: none;
+
+}
+ 
+.sidebar a.active {
+  
+  color: white;
+}
+
+.sidebar a:hover:not(.active) , #modal-btn:hover:not(.active){
+  background-color: #555;
+  color: #1B1934;
+
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.main {
+	margin-left: 208px;
+}
+
+
+
+
+
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  div.content {margin-left: 0;}
+
+  .main{
+  	margin-left: 0px;
+  }
+
+ div #pain_chart_div, div #exercise_chart_div, div #sleep_chart_div, div #overview_chart_div, div #multi_chart, div #good_sleep_div, div #sleep_chart_pag_div
+ , div #average_sleep_div, div #breakdown_chart_div, div #average_pain_div, div #exercise_breakdown_div, div #average_exercise_div{
+	width:100%;
+	margin:4px;
+
+	float:left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	/*height:300px;*/
+	padding:3px;
+}
+
+
+
+
+}
+
+
+
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+/*Side bar image */
+#profile_pic{
+	border-radius: 69px;
+	height:137px;
+	width:137px;
+	overflow: hidden;
+
+
+}
+
+
+
+
+#multi_chart{
+	width:69%;
+	float: left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	margin:5px;
+	
+}
+
+#overview_chart_div{
+	width:29%;
+	float: left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	margin:5px;
+	padding-bottom: 15px;
+}
+
+#exercise_chart_div{
+	width:32%;
+	margin:4px;
+
+	float:left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	/*height:300px;*/
+	padding:3px;
+}
+
+#pain_chart_div{
+	width:32%;
+	margin:4px;
+
+	float:left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	/*height:300px;*/
+	padding:3px;
+}
+
+#sleep_chart_div{
+	width:32%;
+	margin:4px;
+
+	float:left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	/*height:300px;*/
+	padding:3px;
+}
+
+
+#sleep_page_chart_div{
+	width:100%;
+	margin:4px;
+
+	float:left;
+	background-color:#1B1934;
+	border-radius:25px; 
+	height:700px;
+}
+
+.main{
+	margin-bottom: 1100px;
+}
+
+
+#breakdown_chart_div, #exercise_breakdown_div{
+	width: 80%;
+	background-color:#1B1934;
+	border-radius:25px; 
+	float:left;
+	margin-bottom: 15px;
+	
+}
+
+.hide{
+	
+	display: none;
+}
+
+#breakdown_chart{
+	height: 500px;
+}
+
+
+#average_pain_div, #average_sleep_div, #average_exercise_div{
+	background-color:#1B1934;
+	border-radius:25px; 
+	float:left;
+	width:18%;
+	margin-left: 5px;
+	padding:5px;
+	text-align: center;
+	
+
+
+}
+
+p#average_pain, #average_sleep, #average_exercise{
+	font-size: 60px
+	
+
+}
+
+#average_pain_title, #average_sleep_title, #average_exercise_title{
+	font-size: 30px
+}
+
+#pain_chart_page_div{
+	background-color:#1B1934;
+	border-radius:25px; 
+	width:100%;
+	float: left;
+
+}
+
+
+.weather_chart_page_div{
+	background-color:#1B1934;
+	border-radius:25px; 
+	width:100%;
+	float: left;
+	margin-bottom: 20px;
+
+}
+
+
+
+#exercise_chart_page_div{
+	background-color:#1B1934;
+	border-radius:25px; 
+	width:100%;
+	float: left;
+
+}
+
+#sleep_chart_page_div{
+	background-color:#1B1934;
+	border-radius:25px; 
+	width:100%;
+	float: left;
+
+}
+
+
+#good_sleep_div{
+	width: 80%;
+	background-color:#1B1934;
+	border-radius:25px; 
+	float:left;
+	margin-bottom: 15px;
+}
+
+
+
+
+
+
+/* MODAL*/
+.modal{
+  display: none;
+  position: fixed; 
+  padding-top: 50px;
+  left: 0; 
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+@media screen and (max-width: 700px) {  /*responsiveness - changes size of modal when smaller screen */
+	.modal{
+  display: none;
+  position: fixed; 
+  padding-top: 50px;
+  left: 0; 
+  top: 0;
+  width: 100%;
+  height: 80%; 
+  overflow: scroll; /*lets the user scroll down to the bottom of the modal when the screen is smaller*/
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+}
+
+
+
+
+.modal-content{
+  position: relative; 
+  background-color: #5a5375;
+  padding: 20px; 
+  margin: auto; 
+  width: 75%;  
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
+  border-radius:25px;
+}
+.close-btn {
+  float: right; 
+  color: lightgray; 
+  font-size: 50px;  
+  font-weight: bold;
+}
+.close-btn:hover {
+  color: darkgray;
+}
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+datalist {
+  display: none;
+}
+
+#demo{
+	font-weight: bold;
+	color:#1B1934;
+}
+
+
+
+
+
+/*pain slider */
+.pain_slider {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 10px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #1B1934; /* Purple background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 15px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #1B1934; /* Purple background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+/*Calendar*/
+#data_date{
+	color:#D0D0DF;
+	font-family: "Segoe UI";
+	font-size:20px;
+}
+
+.input_title{
+	/*color:;*/
+	font-weight: bold;
+}
+
+.modal_title{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+#submit{
+	background-color: #D0D0DF;
+	color:#1B1934;
+	font-family: "Segoe UI";
+	border-radius: 10px;
+	font-size: 20px;
+	margin:10px;
+}
+
+
+/*calendar page - fetch data page*/
+#main > p{
+	background-color: #1B1934;
+	border-radius: 25px;
+	width:45%;
+	padding:10px;
+	margin-left: 40px;
+}
+
+
+#main > p > ul> div:nth-child(1){
+	font-weight: bold;
+	padding-bottom: 15px;
+	text-decoration: underline;
+	margin-left: -38px;
+}
+
+
+
+/*create  own bullet points so can changes the colour of them*/
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before { 
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #fec667; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  font-size: 20px;
+}
